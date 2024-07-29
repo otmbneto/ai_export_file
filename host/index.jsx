@@ -27,6 +27,7 @@ function saveAsPSDWithDialog() {
 		var exportOptions = new ExportOptionsPhotoshop();
 		exportOptions.alphaChannels = true;
 		exportOptions.layers = true;
+		exportOptions.writeLayers = true;
 		exportOptions.annotations = true;
 		exportOptions.spotColors = true;
 		exportOptions.imageCompression = true;
