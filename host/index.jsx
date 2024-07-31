@@ -1,4 +1,4 @@
-/*#############################################################################
+﻿/*#############################################################################
 #                                                                  _    _     #
 #  index.jsx                                                      , `._) '>   #
 #                                                                 '//,,,  |   #
@@ -23,18 +23,20 @@ function saveAsPSDWithDialog() {
 	  if (destFolder) {
 		var docName = originalDoc.name.replace(/\.[^\.]+$/, ''); // Remove extension
   
-		// Create the export options
-		var exportOptions = new ExportOptionsPhotoshop();
-		exportOptions.alphaChannels = true;
-		exportOptions.layers = true;
-		exportOptions.writeLayers = true;
-		exportOptions.annotations = true;
-		exportOptions.spotColors = true;
-		exportOptions.imageCompression = true;
-		exportOptions.maximizeCompatibility = true;
+        // Create the export options
+        var exportOptions = new ExportOptionsPhotoshop();
+        exportOptions.alphaChannels = true;
+        exportOptions.layers = true;
+        exportOptions.writeLayers = true;
+        exportOptions.annotations = true;
+        exportOptions.spotColors = true;
+        exportOptions.saveMultipleArtboards = true;		
+        exportOptions.imageCompression = true;
+        exportOptions.maximizeCompatibility = true;
   
 		// Save the document as PSD to the chosen folder
 		var psdFile = new File(destFolder + "/" + docName + ".psd");
+        
 		originalDoc.exportFile(psdFile, ExportType.PHOTOSHOP, exportOptions);
 		alert("File saved as PSD: " + psdFile.fsName);
 	  } else {
@@ -44,4 +46,3 @@ function saveAsPSDWithDialog() {
 	  alert("No active document found.");
 	}
   }
-  
